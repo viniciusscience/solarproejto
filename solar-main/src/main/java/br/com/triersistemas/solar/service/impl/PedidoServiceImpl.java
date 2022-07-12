@@ -6,6 +6,7 @@ import br.com.triersistemas.solar.domain.Pedido;
 import br.com.triersistemas.solar.domain.Produto;
 import br.com.triersistemas.solar.exceptions.NaoExisteException;
 import br.com.triersistemas.solar.model.AdicionarPedidoModel;
+import br.com.triersistemas.solar.model.FarmaceuticoModel;
 import br.com.triersistemas.solar.model.PagarPedidoModel;
 import br.com.triersistemas.solar.model.PedidoModel;
 import br.com.triersistemas.solar.repository.PedidoRepository;
@@ -46,8 +47,8 @@ public class PedidoServiceImpl implements PedidoService {
 
     @Override
     public Pedido cadastrar(PedidoModel model) {
-        Farmaceutico farmaceutico = farmaceuticoService.consultar(model.getIdFarmaceutico());
-        Cliente cliente = clienteService.consultar(model.getIdCliente());
+        Farmaceutico farmaceutico=  new Farmaceutico  (farmaceuticoService.consultar(model.getIdFarmaceutico()));
+        Cliente cliente = new Cliente(clienteService.consultar(model.getIdCliente()));
         Pedido pedido = new Pedido(farmaceutico, cliente);
         pedidoRepository.cadastrar(pedido);
         return pedido;

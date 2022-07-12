@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-@Repository
-public class ClienteRepositoryImpl extends BaseRepositoryImpl<UUID, Cliente> implements ClienteRepository {
+
+public class ClienteRepositoryImpl  {
 
 }

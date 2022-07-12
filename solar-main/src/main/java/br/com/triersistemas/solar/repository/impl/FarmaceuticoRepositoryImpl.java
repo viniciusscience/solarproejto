@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public class FarmaceuticoRepositoryImpl extends BaseRepositoryImpl<UUID, Farmaceutico> implements FarmaceuticoRepository {
+public class FarmaceuticoRepositoryImpl  {
 
 }

@@ -7,3 +7,15 @@ Jsolar-main/src/main/java/br/com/triersistemas/solar/domain/Fornecedor.java,3/c
 Osolar-main/src/main/java/br/com/triersistemas/solar/model/PagarPedidoModel.java,8/e/8e75932632a989c96bed8bc117bf0a0f02e962ad
 z
 Jsolar-main/src/main/java/br/com/triersistemas/solar/model/PedidoModel.java,9/b/9be7a76f9834393419018e35360905ccc293d5d4
+v
+Fsolar-main/src/main/java/br/com/triersistemas/solar/domain/Pedido.java,d/1/d165f6b5c092bc2e60994072a36377412264e149
+…
+Usolar-main/src/main/java/br/com/triersistemas/solar/controller/ProdutoController.java,2/9/29cac5de6c989aec568f9fe9051928be39eb12bf
+„
+Tsolar-main/src/main/java/br/com/triersistemas/solar/controller/PedidoController.java,d/4/d42cdf4beff8a528e816c9177b6234c3021910bc
+
+Osolar-main/src/main/java/br/com/triersistemas/solar/enuns/EnumStatusPedido.java,9/9/9972af87a32824811d9ed97e88271712f722e633
+ƒ
+Ssolar-main/src/main/java/br/com/triersistemas/solar/model/AdicionarPedidoModel.java,1/3/131a421e81e7a31a29d6134b0b897be28e1ba950
+~
+Nsolar-main/src/main/java/br/com/triersistemas/solar/model/FornecedorModel.java,e/1/e10375552632128ed77b844700767aba695f3100

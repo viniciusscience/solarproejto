@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 public class ClienteServiceImpl implements ClienteService {
@@ -18,33 +19,37 @@ public class ClienteServiceImpl implements ClienteService {
     private ClienteRepository clienteRepository;
 
     @Override
-    public List<Cliente> consultar() {
-        return clienteRepository.consultar();
+    public List<ClienteModel> consultar() {
+        return clienteRepository.findAll().stream().map(ClienteModel::new).collect(Collectors.toList());
     }
 
     @Override
-    public Cliente consultar(UUID id) {
-        return clienteRepository.consultar(id).orElseThrow(NaoExisteException::new);
+    public ClienteModel consultar(UUID id) {
+        return new ClienteModel(this.buscarClienteID(id));
     }
 
     @Override
-    public Cliente cadastrar(ClienteModel model) {
-        var cliente = new Cliente(model.getNome(), model.getAniver(), model.getCpf(), model.getEmail());
-        clienteRepository.cadastrar(cliente);
-        return cliente;
+    public ClienteModel cadastrar(ClienteModel model) {
+        var cliente = new Cliente(model);
+       return  new ClienteModel(clienteRepository.save(cliente));
+
     }
 
     @Override
-    public Cliente alterar(UUID id, ClienteModel model) {
-        Cliente cliente = this.consultar(id);
+    public ClienteModel alterar(ClienteModel model) {
+        Cliente cliente = this.buscarClienteID(model.getId());
         cliente.editar(model.getNome(), model.getAniver(), model.getCpf(), model.getEmail());
-        return cliente;
+        return new ClienteModel(this.clienteRepository.save(cliente));
     }
 
     @Override
-    public Cliente remover(UUID id) {
-        Cliente cliente = this.consultar(id);
-        clienteRepository.remover(cliente);
-        return cliente;
+    public ClienteModel remover(UUID id) {
+        Cliente cliente = this.buscarClienteID(id);
+        clienteRepository.delete(cliente);
+        return new ClienteModel(cliente);
+    }
+
+    private Cliente buscarClienteID(UUID id){
+     return  clienteRepository.findById(id).orElseThrow(NaoExisteException::new);
     }
 }
